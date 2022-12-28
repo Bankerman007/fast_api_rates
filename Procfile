@@ -1,2 +1,2 @@
-web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker fast-api-rates:app
+web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
 
