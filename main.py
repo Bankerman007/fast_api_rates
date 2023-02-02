@@ -9,27 +9,27 @@ class Rates(BaseModel):
     id: int
     rate: float
     
-five_year_treasury = five_year_treasury()
-prime = prime_rate()
-dow = dow()
-dow_price_change = dow_price_change()
+    # five_year_treasury = five_year_treasury()
+    # prime = prime_rate()
+    # dow = dow()
+    # dow_price_change = dow_price_change()
 
 db: List[Rates] = [
     Rates(
         id = 1,
-        rate = five_year_treasury
+        rate = five_year_treasury()
     ),
     Rates(
         id = 2,
-        rate = prime
+        rate = prime_rate()
     ),
     Rates(
         id = 3,
-        rate = dow
+        rate = dow()
     ),
     Rates(
         id = 4,
-        rate = dow_price_change
+        rate = dow_price_change()
     )
 ]
 
