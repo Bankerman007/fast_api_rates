@@ -10,7 +10,7 @@ def five_year_treasury():
     
     return float(treasury_rate)
 
-five_year_treasury()
+
 
 def prime_rate():
     scraper= pd.read_html('https://www.jpmorganchase.com/about/our-business/historical-prime-rate')
@@ -20,10 +20,10 @@ def prime_rate():
     prime = df_scrub.iloc[-1]
     prime =prime[1]
     prime= prime[:-1]
-
+   
     return float(prime) 
 
-prime_rate()  
+  
 
 def dow():
     scraper= pd.read_html('https://www.kitco.com/charts/livegold.html')
