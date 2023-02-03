@@ -8,11 +8,6 @@ app = FastAPI()
 class Rates(BaseModel):
     id: int
     rate: float
-    
-    # five_year_treasury = five_year_treasury()
-    # prime = prime_rate()
-    # dow = dow()
-    # dow_price_change = dow_price_change()
 
 db: List[Rates] = [
     Rates(
@@ -33,7 +28,6 @@ db: List[Rates] = [
     )
 ]
 
-
 @app.get("/rates")
 async def fetch_all_rates():
     return db
@@ -41,6 +35,4 @@ async def fetch_all_rates():
 @app.get("/rates/{id}")
 def treasury(id: int):
     return {"rate": db[(id-1)]}
-
-
 
