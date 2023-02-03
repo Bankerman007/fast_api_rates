@@ -2,11 +2,11 @@ import pandas as pd
 
 
 def five_year_treasury():
-    scraper = pd.read_html('https://finance.yahoo.com/quote/%5EFVX/')
+    #scraper = pd.read_html('https://finance.yahoo.com/quote/%5EFVX/')
+    scraper =pd.read_html('https://www.mortgagenewsdaily.com/treasury/5yr')
     row = pd.concat(scraper)
     df = pd.DataFrame(row)
-    df_scrub = df.iloc[1:2]
-    treasury_rate= df_scrub[1].loc[df_scrub.index[0]]
+    treasury_rate = df.iloc[2,3]
     
     return float(treasury_rate)
 
