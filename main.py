@@ -28,17 +28,22 @@ db: List[Rates] = [
         rate = 1.00
     )
 ]
-db[0].rate = five_year_treasury()
-db[1].rate = prime_rate()
-db[2].rate = dow_price_change()
-db[3].rate = dow()
+
 
 @app.get("/rates")
 async def fetch_all_rates():
+    db[0].rate = five_year_treasury()
+    db[1].rate = prime_rate()
+    db[2].rate = dow_price_change()
+    db[3].rate = dow()
     return db
 
 @app.get("/rates/{id}")
 def treasury(id: int):
+    db[0].rate = five_year_treasury()
+    db[1].rate = prime_rate()
+    db[2].rate = dow_price_change()
+    db[3].rate = dow()
     return {"rate": db[(id-1)]}
 
 print(db)
