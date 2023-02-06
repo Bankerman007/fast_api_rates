@@ -9,30 +9,29 @@ class Rates(BaseModel):
     id: int
     rate: float
 
-def update_rates():
-    db[0].rate = five_year_treasury()
-    db[1].rate = prime_rate()
-    db[2].rate = dow_price_change()
-    db[3].rate = dow()
 
 db: List[Rates] = [
     Rates(
         id = 1,
-        rate = five_year_treasury()
+        rate = 1.00
     ),
     Rates(
         id = 2,
-        rate = prime_rate()
+        rate = 1.00
     ),
     Rates(
         id = 3,
-        rate = dow_price_change()
+        rate = 1.00
     ),
     Rates(
         id = 4,
-        rate = dow()
+        rate = 1.00
     )
 ]
+db[0].rate = five_year_treasury()
+db[1].rate = prime_rate()
+db[2].rate = dow_price_change()
+db[3].rate = dow()
 
 @app.get("/rates")
 async def fetch_all_rates():
