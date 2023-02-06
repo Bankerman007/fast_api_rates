@@ -5,11 +5,9 @@ from typing import List
 
 app = FastAPI()
 
-
 class Rates(BaseModel):
     id: int
     rate: float
-
 
 db: List[Rates] = [
     Rates(
@@ -30,8 +28,6 @@ db: List[Rates] = [
     )
 ]
 
-print(db)
-
 @app.get("/rates")
 async def fetch_all_rates():
     return db
@@ -40,3 +36,4 @@ async def fetch_all_rates():
 def treasury(id: int):
     return {"rate": db[(id-1)]}
 
+print(db)
