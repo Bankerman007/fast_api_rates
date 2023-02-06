@@ -27,6 +27,11 @@ db: List[Rates] = [
         rate = dow()
     )
 ]
+def update_rates():
+    db[0].rate = five_year_treasury()
+    db[1].rate = prime_rate()
+    db[2].rate = dow_price_change()
+    db[3].rate = dow()
 
 @app.get("/rates")
 async def fetch_all_rates():
